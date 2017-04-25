@@ -12,9 +12,8 @@ class WeekViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var table: UITableView!
     
-    var selectDefault  = true
     var weekView : [WeekList] = []
-    
+    var selectDefault : Bool!
     var selectedList : [WeekList] = []
     
     var array1 = ["Mon":"M","Tue":"T","Wed":"W","Thu":"R","Fri":"F"]
@@ -23,8 +22,18 @@ class WeekViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        
+        self.selectDefault = true
         // Do any additional setup after loading the view.
+        for week in weekView{
+            
+            if week.days.contains("M"){
+                
+                self.selectedList.append(week)
+                
+            }
+            
+        }
+
     }
     
     
@@ -46,7 +55,13 @@ class WeekViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.label.text = arr[indexPath.row]
-        
+        print(self.selectDefault)
+        print(indexPath.row)
+        if indexPath.row == 0 && self.selectDefault{
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition:.centeredVertically)
+            self.selectDefault = false
+        }
         return cell
     }
     
@@ -102,7 +117,7 @@ extension WeekViewController : UICollectionViewDelegateFlowLayout{
         
         let avail = self.view.frame.width/5
         
-        return CGSize(width: avail, height: 50.0)
+        return CGSize(width: avail, height: 53.0)
     }
     
     
