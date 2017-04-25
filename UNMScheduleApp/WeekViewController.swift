@@ -36,6 +36,11 @@ class WeekViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     
     
     @IBAction func doneAction(_ sender: AnyObject) {
@@ -107,6 +112,12 @@ extension WeekViewController : UITableViewDelegate, UITableViewDataSource{
         cell.textLabel!.text = self.selectedList[indexPath.row].title
         cell.detailTextLabel?.text = "Timing : " + self.selectedList[indexPath.row].startTime + " - " + self.selectedList[indexPath.row].endTime
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var week2 = self.storyboard?.instantiateViewController(withIdentifier: "week2") as! WeekViewController2
+        week2.weeklist = self.selectedList[indexPath.row]
+        self.navigationController?.pushViewController(week2, animated: true)
     }
     
 }

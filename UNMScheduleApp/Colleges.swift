@@ -74,4 +74,6 @@ class WeekList{
     var startTime : String = String()
     var endTime = String()
     var days = String()
+    var crn : String = String()
+    var instructionalMethod : String = String()
 }

@@ -62,6 +62,8 @@ class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSou
                     weekView.title = course.title
                     weekView.startTime = section.meetingTimes[0].startTime
                     weekView.endTime = section.meetingTimes[0].endTime
+                    weekView.crn = section.crn
+                    weekView.instructionalMethod = section.instructionalMethod
                     for days in section.meetingTimes[0].days{
                         
                         weekView.days.append(days.day)
@@ -74,7 +76,9 @@ class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         }
         
-        self.present(week, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: week)
+        
+        self.present(nav, animated: true, completion: nil)
         
     }
     

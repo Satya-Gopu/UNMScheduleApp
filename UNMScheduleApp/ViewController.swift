@@ -95,8 +95,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         rownumber = indexPath.row
         self.selected = true
         self.table.reloadData()
-        self.activityindicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        self.activityindicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         self.activityindicator.center = self.view.center
+        self.activityindicator.color = UIColor.black
         self.activityindicator.startAnimating()
         self.view.addSubview(self.activityindicator)
         
