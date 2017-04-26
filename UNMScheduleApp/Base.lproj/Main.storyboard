@@ -337,7 +337,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhQ-Sg-mCF">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Weekly Schedule" id="CFk-kH-0F7">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="MHS-hm-Tfa">
@@ -349,7 +349,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-6x-L22">
-                                <rect key="frame" x="0.0" y="64" width="320" height="53"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="53"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="w5g-vv-lON"/>
@@ -394,8 +394,8 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldu-a6-dQt">
-                                <rect key="frame" x="0.0" y="117" width="320" height="451"/>
-                                <color key="backgroundColor" red="1" green="0.96733836449999999" blue="0.5665629942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="161" width="320" height="407"/>
+                                <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tablecell" textLabel="63N-8f-wIG" detailTextLabel="uxv-rn-Xnt" style="IBUITableViewCellStyleSubtitle" id="8jU-Hp-2N9" customClass="tablecell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -420,7 +420,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.96733836449999999" blue="0.5665629942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -764,7 +764,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98789410121874122" blue="0.68407491114775076" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.9882352941176471" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="coursetitle" destination="BSS-qg-ci4" id="jXi-VJ-Zrk"/>

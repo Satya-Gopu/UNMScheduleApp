@@ -16,7 +16,7 @@ class CollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool{
         didSet{
             
-            self.backgroundColor = isSelected ? UIColor.yellow : UIColor.gray
+            self.backgroundColor = isSelected ? UIColor(red: 1.0, green: 252/255, blue: 174/255, alpha: 1.0) : UIColor.gray
         }
         
     }

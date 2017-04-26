@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 if error == nil{
                     
                     do{
+                    print("error is nil")
                     try FileManager.default.moveItem(at: url!, to: (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("current.xml"))!)
                     }
                     catch{
