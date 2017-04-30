@@ -17,6 +17,18 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.automaticallyAdjustsScrollViewInsets = false
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.bool(forKey: "visited") != true{
+            let nonvisited = self.storyboard?.instantiateViewController(withIdentifier: "initial") as! InitialViewController
+            present(nonvisited, animated: true, completion: nil)
+            
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

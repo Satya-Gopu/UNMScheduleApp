@@ -94,6 +94,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         rownumber = indexPath.row
         self.selected = true
+        let color = self.navigationController?.navigationBar.tintColor
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
         self.table.reloadData()
         self.activityindicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         self.activityindicator.center = self.view.center
@@ -117,6 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             sec.collegeObjectArray = self.collegeObjectArray
             
             self.navigationController?.pushViewController(sec, animated: true)
+            self.navigationController?.navigationBar.tintColor = color
             
         }
         
