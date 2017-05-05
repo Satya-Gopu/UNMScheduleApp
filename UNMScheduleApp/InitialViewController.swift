@@ -16,6 +16,8 @@ class InitialViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var progress: UIProgressView!
+    
     var filemanager = FileManager.default
     
     var delegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,6 +28,7 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         self.spinner.startAnimating()
         self.button.isHidden = true
+        self.progress.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,31 +45,42 @@ class InitialViewController: UIViewController {
             let session = URLSession.shared
             let task = session.downloadTask(with: urlrequest){(url,response,error) in
                 if error == nil{
+                    print("file downloaded")
                     
                     do{
-                        print("file downloaded")
+                        
                         if self.filemanager.fileExists(atPath: self.delegate.fileURL.path){
                             try FileManager.default.removeItem(at: self.delegate.fileURL)
                             print("file removed")
                             
                         }
+                    }
+                    catch{
+                        print("file can't be deleted")
+                    }
+                    do{
                         
                         try FileManager.default.moveItem(at: url!, to: self.delegate.fileURL)
                         print("file moved")
                         UserDefaults.standard.set(true, forKey: "visited")
+                        
                         performUIUpdatesOnMain {
                             self.label.text = "welcome"
                             self.spinner.isHidden = true
                             self.thanklabel.isHidden = true
                             self.label.font = self.label.font.withSize(25)
-                            //self.label.transform = CGAffineTransform(scaleX: 0.35, y: 0.35)
-                            UIView.animate(withDuration: 1.5, delay: 0, options: .allowAnimatedContent, animations:{() -> Void in
-                                self.label.transform = CGAffineTransform(scaleX: 2, y: 2)
+                            self.label.transform = CGAffineTransform(scaleX: 0.35, y: 0.35)
+                            //self.view.layoutIfNeeded()
+                            UIView.animate(withDuration: 2.0, delay: 0, options: .allowAnimatedContent, animations:{() -> Void in
+                                self.label.transform = CGAffineTransform(scaleX: 1.5, y: 1.3)
+                                print("animating")
                                 
-                            } , completion: nil)
+                            } , completion: { complated in
+                                self.dismiss(animated: true, completion: nil)
+                            })
                             
                         }
-                        self.dismiss(animated: true, completion: nil)
+                        
                         
                     }
                     catch{
@@ -116,3 +130,6 @@ class InitialViewController: UIViewController {
     }
 
 }
+
+
+
