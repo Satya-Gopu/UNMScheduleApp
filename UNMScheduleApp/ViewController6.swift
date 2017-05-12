@@ -22,7 +22,7 @@ class ViewController6: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Details"
-        label.text = self.descriptions
+        label.text = self.descriptions == "" ? "sorry, Description is not available" : self.descriptions
         titlelabel.text = self.coursetitle
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
@@ -46,6 +46,8 @@ class ViewController6: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let seven = self.storyboard?.instantiateViewController(withIdentifier: "seven") as! ViewController7
+        seven.section = self.sections[indexPath.row]
+        /*
         seven.crn = self.sections[indexPath.row].crn
         seven.titles = self.sections[indexPath.row].title
         seven.partOfTerm = self.sections[indexPath.row].partOfTerm
@@ -54,8 +56,8 @@ class ViewController6: UIViewController, UITableViewDelegate, UITableViewDataSou
         seven.enrollmentNow = self.sections[indexPath.row].enrollmentNow
         seven.credits = self.sections[indexPath.row].credits
         seven.instructors = self.sections[indexPath.row].instructors
+        */
         self.navigationController?.pushViewController(seven, animated: true)
-        
     }
 
     

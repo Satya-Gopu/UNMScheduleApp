@@ -19,6 +19,9 @@ class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.navigationItem.title = "courses"
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
+        courseArray = courseArray.sorted(by: {course1, course2 in
+            return course1.title < course2.title
+        })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,6 +72,7 @@ class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSou
                         weekView.days.append(days.day)
                         
                     }
+                    weekView.section = section
                     week.weekView.append(weekView)
                 }
                 

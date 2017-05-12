@@ -13,19 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     var filemanager = FileManager.default
-    let remoteURL = URL(string: "http://datastore.unm.edu/schedules/current.xml")
-    let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("current.xml")
+    let remoteURLCurrent = URL(string: "http://datastore.unm.edu/schedules/current.xml")
+    let remoteURLNext = URL(string: "http://datastore.unm.edu/schedules/next1.xml" )
+    let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        //.appendingPathComponent("current.xml")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("DIDLAUNCH")
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-        /*
-        DispatchQueue.global(qos: .userInteractive).async {
-            
-            
-        }*/
-        
-        
         return true
     }
 
@@ -60,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        let urlrequest = URLRequest(url: remoteURL!)
+        let urlrequest = URLRequest(url: remoteURLNext!)
         let session = URLSession.shared
         let task = session.downloadTask(with: urlrequest){(url,response,error) in
             if error == nil{

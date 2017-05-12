@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
+    var fileURL : URL!
     var selected : Bool = false
     var eName : String = String()
     var positive : Bool = false
@@ -107,14 +108,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //if let url = Bundle.main.url(forResource: "current", withExtension: "xml"){
         
         DispatchQueue.global(qos: .userInitiated).async {
-            
-            if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last?.appendingPathComponent("current.xml"){
-                
-                let parser = XMLParser(contentsOf: url)
-                
+                let parser = XMLParser(contentsOf: self.fileURL)
                 parser?.delegate = self
                 parser?.parse()
-            }
             let sec = self.storyboard?.instantiateViewController(withIdentifier: "sec") as! ViewController2
             
             sec.collegeObjectArray = self.collegeObjectArray

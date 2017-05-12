@@ -71,6 +71,7 @@ class Days{
 
 class WeekList{
     var title : String = String()
+    var section : Sections!
     var startTime : String = String()
     var endTime = String()
     var days = String()

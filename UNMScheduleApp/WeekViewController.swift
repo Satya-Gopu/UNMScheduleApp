@@ -111,13 +111,18 @@ extension WeekViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
         cell.textLabel!.text = self.selectedList[indexPath.row].title
         cell.detailTextLabel?.text = "Timing : " + self.selectedList[indexPath.row].startTime + " - " + self.selectedList[indexPath.row].endTime
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var week2 = self.storyboard?.instantiateViewController(withIdentifier: "week2") as! WeekViewController2
-        week2.weeklist = self.selectedList[indexPath.row]
-        self.navigationController?.pushViewController(week2, animated: true)
+        
+        let v7 = self.storyboard?.instantiateViewController(withIdentifier: "seven") as! ViewController7
+        v7.section = self.selectedList[indexPath.row].section
+        self.navigationController?.pushViewController(v7, animated: true)
+        //var week2 = self.storyboard?.instantiateViewController(withIdentifier: "week2") as! WeekViewController2
+        //week2.weeklist = self.selectedList[indexPath.row]
+        //self.navigationController?.pushViewController(week2, animated: true)
     }
     
 }
