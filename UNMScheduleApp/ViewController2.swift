@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var collegeObjectArray : [Colleges] = []
+    var collegeObjectArray : [Campus] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath)
         
-        cell.textLabel?.text = collegeObjectArray[indexPath.row].collname
+        cell.textLabel?.text = collegeObjectArray[indexPath.row].campusname
         
         return cell
         
@@ -41,7 +41,7 @@ class ViewController2: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let three = self.storyboard?.instantiateViewController(withIdentifier: "three") as! ViewController3
         
-        three.departments = self.collegeObjectArray[indexPath.row].departArray
+        three.departments = self.collegeObjectArray[indexPath.row].collegeArray
         
         self.navigationController?.pushViewController(three, animated: true)
         

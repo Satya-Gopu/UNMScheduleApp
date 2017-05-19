@@ -8,6 +8,13 @@
 
 import Foundation
 
+class Campus{
+    
+    var campusname: String = String()
+    var collegeArray : [Colleges] = []
+    
+}
+
 class Colleges{
     
     var collname : String = String()

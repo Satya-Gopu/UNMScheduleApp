@@ -27,6 +27,7 @@
 		D596D34F1E5E56B40080A700 /* current.xml in Resources */ = {isa = PBXBuildFile; fileRef = D596D34E1E5E56B40080A700 /* current.xml */; };
 		D5C98A4D1E9F316C005344E2 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */; };
 		D5C98A4F1E9F33DF005344E2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C98A4E1E9F33DF005344E2 /* CollectionViewCell.swift */; };
+		D5F6A5E81ECEB29A007B7F51 /* XMLParserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */; };
 		D5FF07241E68F1AA003E5304 /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF07231E68F1AA003E5304 /* ZeroViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		D596D34E1E5E56B40080A700 /* current.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = current.xml; sourceTree = "<group>"; };
 		D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		D5C98A4E1E9F33DF005344E2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParserClass.swift; sourceTree = "<group>"; };
 		D5FF07231E68F1AA003E5304 /* ZeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				D50D40F21E609E6F008806EB /* ViewController7.swift */,
 				D5FF07231E68F1AA003E5304 /* ZeroViewController.swift */,
 				D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */,
+				D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -267,7 +270,6 @@
 				TargetAttributes = {
 					D596D31A1E5E40F70080A700 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = T7PF689UHV;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -343,6 +345,7 @@
 				D50E6BCB1EB5705500A598E9 /* InitialViewController.swift in Sources */,
 				D5FF07241E68F1AA003E5304 /* ZeroViewController.swift in Sources */,
 				D5051FA01E5EAED200BDC4F3 /* ViewController3.swift in Sources */,
+				D5F6A5E81ECEB29A007B7F51 /* XMLParserClass.swift in Sources */,
 				D51580A61E5FD1AB00BB11BA /* ViewController4.swift in Sources */,
 				D596D3211E5E40F70080A700 /* ViewController.swift in Sources */,
 				D56DF7CD1E6B7F28002D7581 /* GCDBlackBox.swift in Sources */,
@@ -504,7 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T7PF689UHV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UNMScheduleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.UNMScheduleApp;
@@ -517,7 +520,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T7PF689UHV;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UNMScheduleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.UNMScheduleApp;
