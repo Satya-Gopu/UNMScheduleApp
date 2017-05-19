@@ -125,8 +125,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        eName = elementName
         
+        eName = elementName
         
         if ((elementName == "campus") && (attributeDict["name"] == campuses[rownumber])){
             inside = true
