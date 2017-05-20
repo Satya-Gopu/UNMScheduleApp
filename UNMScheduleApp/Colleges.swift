@@ -8,6 +8,33 @@
 
 import Foundation
 
+class Semester : NSObject, NSCoding{
+    
+    var name : String = String()
+    var campusArray : [Campus] = []
+    required init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: "semester") as? String else{
+            return
+        }
+        guard let campuses = aDecoder.decodeObject(forKey: "campusArray") as? [Campus] else{
+            return
+        }
+        self.name = name
+        self.campusArray = campuses
+    }
+    
+    override init() {
+        
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "semester")
+        aCoder.encode(self.campusArray, forKey: "campusArray")
+    }
+    
+    
+}
+
 class Campus : NSObject, NSCoding{
     
     var campusname: String = String()

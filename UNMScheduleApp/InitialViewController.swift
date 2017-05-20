@@ -100,21 +100,20 @@ extension InitialViewController : URLSessionDownloadDelegate{
         //print(location.absoluteString)
         //DispatchQueue.global(qos: .userInitiated).async {
             
-            let parser = XMLParserClass(url: location)
-            parser.startParsing()
-            let campusArray = parser.campusArray
-            let dataObject = NSKeyedArchiver.archivedData(withRootObject: campusArray)
-        
+        let parser = XMLParserClass(url: location)
+        parser.startParsing()
+        if let semester = parser.semester{
+            //let dataObject = NSKeyedArchiver.archivedData(withRootObject: semester)
             if downloadTask.originalRequest?.url?.lastPathComponent == "current.xml"{
-                
-                UserDefaults.standard.set(dataObject, forKey: "current")
-                print("added one")
+                NSKeyedArchiver.archiveRootObject(semester, toFile: self.appDelegate.fileURL.appendingPathComponent("current").path)
+                //UserDefaults.standard.set(dataObject, forKey: "current")
             }
             else{
-                UserDefaults.standard.set(dataObject, forKey: "next")
+                NSKeyedArchiver.archiveRootObject(semester, toFile: self.appDelegate.fileURL.appendingPathComponent("next").path)
+                //UserDefaults.standard.set(dataObject, forKey: "next")
             }
-            //print("campus array count for \(downloadTask.originalRequest?.url?.absoluteString) is \(campusArray.count)")
-        //}
+        }
+        
         session.finishTasksAndInvalidate()
     }
     

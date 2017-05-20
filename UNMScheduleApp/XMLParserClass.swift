@@ -9,7 +9,6 @@
 import Foundation
 
 class XMLParserClass : NSObject, XMLParserDelegate{
-   
     var fileURL : URL!
     var selected : Bool = false
     var eName : String = String()
@@ -44,6 +43,8 @@ class XMLParserClass : NSObject, XMLParserDelegate{
     var campusName : String = ""
     var campusArray : [Campus] = []
     var parserError : Error!
+    var semestername : String = String()
+    var semester : Semester!
     
     
     init(url : URL){
@@ -64,6 +65,8 @@ class XMLParserClass : NSObject, XMLParserDelegate{
         eName = elementName
         
         switch elementName{
+        case "semester":
+            self.semestername = attributeDict["name"]!
         case "campus":
             self.campusName = attributeDict["name"]!
         case "college":
@@ -190,6 +193,12 @@ class XMLParserClass : NSObject, XMLParserDelegate{
             self.startTime = ""
             self.endTime = ""
             self.daysArray.removeAll()
+        case "semester":
+            let semester = Semester()
+            semester.name = self.semestername
+            semester.campusArray = self.campusArray
+            self.semester = semester
+            
             
         default:
             break

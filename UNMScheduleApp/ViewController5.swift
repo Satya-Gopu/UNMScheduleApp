@@ -45,7 +45,7 @@ class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         let six = self.storyboard?.instantiateViewController(withIdentifier: "six") as! ViewController6
         six.coursetitle = self.courseArray[indexPath.row].title
-        six.descriptions = self.courseArray[indexPath.row].description
+        six.descriptions = self.courseArray[indexPath.row].descriptions
         six.sections = self.courseArray[indexPath.row].sections
         self.navigationController?.pushViewController(six, animated: true)
         

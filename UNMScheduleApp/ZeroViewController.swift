@@ -14,12 +14,13 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fileURL : URL!
-    var campusObject : Data!
+    var semester : Semester!
+    var semester1 : Semester!
+    var semester2 : Semester!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
         
         
     }
@@ -30,11 +31,18 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
             present(nonvisited, animated: true, completion: nil)
             
         }
-        self.presentAlert()
-        
+        else{
+            
+            self.semester1 = NSKeyedUnarchiver.unarchiveObject(withFile: self.appDelegate.fileURL.appendingPathComponent("current").path) as! Semester
+            self.semester = semester1
+            self.semester2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.appDelegate.fileURL.appendingPathComponent("next").path) as! Semester
+            self.presentAlert(semester1: semester1.name, semester2: semester2.name)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         
     }
     
@@ -53,30 +61,20 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if self.campusObject == nil{
-            
-            self.campusObject = UserDefaults.standard.object(forKey: "current") as! Data
-        }
-        
         let first = self.storyboard?.instantiateViewController(withIdentifier: "first") as! ViewController
-        first.campusArray = NSKeyedUnarchiver.unarchiveObject(with: self.campusObject) as! [Campus]
-        //first.fileURL = self.fileURL
         first.campuses = self.lists[indexPath.row]!
         self.navigationController?.pushViewController(first, animated: true)
         
     }
-    func presentAlert(){
+    func presentAlert(semester1: String, semester2: String){
         let alert = UIAlertController(title: "Please select a semester", message: nil, preferredStyle: .actionSheet)
-        let currentAction = UIAlertAction(title: "Current Semester", style: .default, handler: { action in
-            self.campusObject = UserDefaults.standard.object(forKey: "current") as! Data
-            //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
-            //print(self.fileURL)
+        let currentAction = UIAlertAction(title: semester1, style: .default, handler: { action in
+            self.semester = self.semester1
             self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(currentAction)
-        let nextAction = UIAlertAction(title: "Next Semester", style: .default, handler: { action in
-            self.campusObject = UserDefaults.standard.object(forKey: "next") as! Data
+        let nextAction = UIAlertAction(title: semester2, style: .default, handler: { action in
+            self.semester = self.semester2
             //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("next1.xml")
             print(self.fileURL)
             self.dismiss(animated: true, completion: nil)
