@@ -14,11 +14,13 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fileURL : URL!
+    var campusObject : Data!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
+        //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -52,8 +54,14 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if self.campusObject == nil{
+            
+            self.campusObject = UserDefaults.standard.object(forKey: "current") as! Data
+        }
+        
         let first = self.storyboard?.instantiateViewController(withIdentifier: "first") as! ViewController
-        first.fileURL = self.fileURL
+        first.campusArray = NSKeyedUnarchiver.unarchiveObject(with: self.campusObject) as! [Campus]
+        //first.fileURL = self.fileURL
         first.campuses = self.lists[indexPath.row]!
         self.navigationController?.pushViewController(first, animated: true)
         
@@ -61,13 +69,15 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
     func presentAlert(){
         let alert = UIAlertController(title: "Please select a semester", message: nil, preferredStyle: .actionSheet)
         let currentAction = UIAlertAction(title: "Current Semester", style: .default, handler: { action in
-            self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
-            print(self.fileURL)
+            self.campusObject = UserDefaults.standard.object(forKey: "current") as! Data
+            //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("current.xml")
+            //print(self.fileURL)
             self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(currentAction)
         let nextAction = UIAlertAction(title: "Next Semester", style: .default, handler: { action in
-            self.fileURL = self.appDelegate.fileURL.appendingPathComponent("next1.xml")
+            self.campusObject = UserDefaults.standard.object(forKey: "next") as! Data
+            //self.fileURL = self.appDelegate.fileURL.appendingPathComponent("next1.xml")
             print(self.fileURL)
             self.dismiss(animated: true, completion: nil)
         })

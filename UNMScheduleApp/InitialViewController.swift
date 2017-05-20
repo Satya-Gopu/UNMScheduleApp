@@ -63,10 +63,12 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
         
         performUIUpdatesOnMain {
+                UserDefaults.standard.set(true, forKey: "visited")
                 self.spinner.isHidden = true
                 self.label.text = "welcome"
                 self.progress.isHidden = true
                 self.label.font = self.label.font.withSize(25)
+            
                 self.label.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
                 UIView.animate(withDuration: 2.0, delay: 0, options: .allowAnimatedContent, animations:{() -> Void in
                     self.label.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -95,15 +97,25 @@ class InitialViewController: UIViewController, URLSessionDelegate {
 extension InitialViewController : URLSessionDownloadDelegate{
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print(location.absoluteString)
+        //print(location.absoluteString)
         //DispatchQueue.global(qos: .userInitiated).async {
             
             let parser = XMLParserClass(url: location)
             parser.startParsing()
-            var campusArray = parser.campusArray
-            print("campus array count for \(downloadTask.originalRequest?.url?.absoluteString) is \(campusArray.count)")
+            let campusArray = parser.campusArray
+            let dataObject = NSKeyedArchiver.archivedData(withRootObject: campusArray)
+        
+            if downloadTask.originalRequest?.url?.lastPathComponent == "current.xml"{
+                
+                UserDefaults.standard.set(dataObject, forKey: "current")
+                print("added one")
+            }
+            else{
+                UserDefaults.standard.set(dataObject, forKey: "next")
+            }
+            //print("campus array count for \(downloadTask.originalRequest?.url?.absoluteString) is \(campusArray.count)")
         //}
-        //session.finishTasksAndInvalidate()
+        session.finishTasksAndInvalidate()
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

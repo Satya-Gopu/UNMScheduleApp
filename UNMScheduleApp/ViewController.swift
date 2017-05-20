@@ -96,35 +96,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        rownumber = indexPath.row
-        self.selected = true
-        let color = self.navigationController?.navigationBar.tintColor
-        self.navigationController?.navigationBar.isUserInteractionEnabled = false
-        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
-        self.table.reloadData()
-        self.activityindicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-        self.activityindicator.center = self.view.center
-        self.activityindicator.color = UIColor.black
-        self.activityindicator.startAnimating()
-        self.view.addSubview(self.activityindicator)
+//        rownumber = indexPath.row
+//        self.selected = true
+//        let color = self.navigationController?.navigationBar.tintColor
+//        self.navigationController?.navigationBar.isUserInteractionEnabled = false
+//        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
+//        self.table.reloadData()
+//        self.activityindicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+//        self.activityindicator.center = self.view.center
+//        self.activityindicator.color = UIColor.black
+//        self.activityindicator.startAnimating()
+//        self.view.addSubview(self.activityindicator)
         
         //if let url = Bundle.main.url(forResource: "current", withExtension: "xml"){
         
-        DispatchQueue.global(qos: .userInitiated).async {
+ //       DispatchQueue.global(qos: .userInitiated).async {
 //                let parser = XMLParser(contentsOf: self.fileURL)
 //                parser?.delegate = self
 //                parser?.parse()
-            let parser = XMLParserClass(url: self.fileURL)
-            parser.startParsing()
-            if parser.parserError == nil{
+            //let parser = XMLParserClass(url: self.fileURL)
+            //parser.startParsing()
+           // if parser.parserError == nil{
                 let sec = self.storyboard?.instantiateViewController(withIdentifier: "sec") as! ViewController2
-                sec.collegeObjectArray = parser.campusArray
-                self.navigationController?.pushViewController(sec, animated: true)
+        
+        for campus in campusArray{
+            if campuses[indexPath.row] == campus.campusname{
+                sec.collegeObjectArray = campus.collegeArray
             }
-            
-            self.navigationController?.navigationBar.tintColor = color
-            
         }
+                //sec.collegeObjectArray = parser.campusArray
+                self.navigationController?.pushViewController(sec, animated: true)
+            //}
+            
+           // self.navigationController?.navigationBar.tintColor = color
+            
+       // }
         
         
      

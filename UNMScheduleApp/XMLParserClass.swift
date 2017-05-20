@@ -136,7 +136,7 @@ class XMLParserClass : NSObject, XMLParserDelegate{
             
             let course = Courses()
             course.title = self.courseTitle
-            course.description = self.coursedescription
+            course.descriptions = self.coursedescription
             course.sections = self.sectionsArray
             self.courseArray.append(course)
             self.sectionsArray.removeAll()
