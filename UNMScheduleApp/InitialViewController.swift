@@ -27,7 +27,7 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     lazy var session : URLSession = {[unowned self]  in
         
         let config = URLSessionConfiguration.default
-        config.httpMaximumConnectionsPerHost = 1
+        //config.httpMaximumConnectionsPerHost = 1
         return URLSession(configuration: config, delegate: self, delegateQueue: nil)
         
     }()
@@ -44,7 +44,7 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             self.runcode()
         }
       }
@@ -65,6 +65,7 @@ class InitialViewController: UIViewController, URLSessionDelegate {
         performUIUpdatesOnMain {
                 UserDefaults.standard.set(true, forKey: "visited")
                 self.spinner.isHidden = true
+                self.thanklabel.isHidden = true
                 self.label.text = "welcome"
                 self.progress.isHidden = true
                 self.label.font = self.label.font.withSize(25)

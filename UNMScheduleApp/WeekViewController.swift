@@ -110,7 +110,7 @@ extension WeekViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath)
         cell.textLabel!.text = self.selectedList[indexPath.row].title
-        cell.detailTextLabel?.text = "Timing : " + self.selectedList[indexPath.row].startTime + " - " + self.selectedList[indexPath.row].endTime
+        cell.detailTextLabel?.text = "Time : " + self.selectedList[indexPath.row].startTime + " - " + self.selectedList[indexPath.row].endTime
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }

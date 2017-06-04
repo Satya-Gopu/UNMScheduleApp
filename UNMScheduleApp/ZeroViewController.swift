@@ -63,6 +63,7 @@ class ZeroViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let first = self.storyboard?.instantiateViewController(withIdentifier: "first") as! ViewController
         first.campuses = self.lists[indexPath.row]!
+        first.campusArray = self.semester.campusArray
         self.navigationController?.pushViewController(first, animated: true)
         
     }

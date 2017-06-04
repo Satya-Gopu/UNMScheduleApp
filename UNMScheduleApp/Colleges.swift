@@ -166,7 +166,7 @@ class Courses :NSObject, NSCoding{
     }
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.title, forKey: "coursetitle")
-        aCoder.encode(self.description, forKey: "description")
+        aCoder.encode(self.descriptions, forKey: "description")
         aCoder.encode(self.sections, forKey: "sections")
     }
     
