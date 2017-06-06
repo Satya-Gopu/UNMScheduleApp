@@ -20,6 +20,8 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     
     @IBOutlet weak var label: UILabel!
     
+    var filesDownloaded : Int = 0
+    
     @IBOutlet weak var progress: UIProgressView!
     
     var filemanager = FileManager.default
@@ -39,6 +41,7 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spinner.startAnimating()
+        self.progress.isHidden = true
         self.button.isHidden = true
     }
     
@@ -62,33 +65,42 @@ class InitialViewController: UIViewController, URLSessionDelegate {
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
         
-        performUIUpdatesOnMain {
+        if error == nil{
+            performUIUpdatesOnMain {
                 UserDefaults.standard.set(true, forKey: "visited")
                 self.spinner.isHidden = true
                 self.thanklabel.isHidden = true
                 self.label.text = "welcome"
                 self.progress.isHidden = true
                 self.label.font = self.label.font.withSize(25)
-            
+                
                 self.label.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
                 UIView.animate(withDuration: 2.0, delay: 0, options: .allowAnimatedContent, animations:{() -> Void in
                     self.label.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                     print("animating")
                     
                 } , completion: { complated in
+                    UserDefaults.standard.set(Date(), forKey: "lastUpdateOn")
                     self.dismiss(animated: true, completion: nil)
                 })
             }
+        }
+        else{
+            print("error")
+            
+        }
+        
+        
     }
     
     
     @IBAction func execute(){
-        
+        self.spinner.isHidden = false
         self.spinner.startAnimating()
         self.label.text = "Please wait"
         self.thanklabel.isHidden = true
         self.button.isHidden = true
-        self.progress.isHidden = false
+        //self.progress.isHidden = false
         self.runcode()
         
     }
@@ -98,24 +110,33 @@ class InitialViewController: UIViewController, URLSessionDelegate {
 extension InitialViewController : URLSessionDownloadDelegate{
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        //print(location.absoluteString)
+        
+        filesDownloaded += 1
         //DispatchQueue.global(qos: .userInitiated).async {
-            
+        print("downloaded")
         let parser = XMLParserClass(url: location)
         parser.startParsing()
         if let semester = parser.semester{
-            //let dataObject = NSKeyedArchiver.archivedData(withRootObject: semester)
             if downloadTask.originalRequest?.url?.lastPathComponent == "current.xml"{
                 NSKeyedArchiver.archiveRootObject(semester, toFile: self.appDelegate.fileURL.appendingPathComponent("current").path)
-                //UserDefaults.standard.set(dataObject, forKey: "current")
+                
             }
             else{
                 NSKeyedArchiver.archiveRootObject(semester, toFile: self.appDelegate.fileURL.appendingPathComponent("next").path)
-                //UserDefaults.standard.set(dataObject, forKey: "next")
+                
+               
+            }
+            performUIUpdatesOnMain {
+                self.label.text = "Almost done, please hang on"
+                self.thanklabel.isHidden = true
+            }
+            
+            if filesDownloaded >= 2{
+                session.finishTasksAndInvalidate()
             }
         }
         
-        session.finishTasksAndInvalidate()
+        
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -136,6 +157,7 @@ extension InitialViewController : URLSessionTaskDelegate{
         if error != nil{
             
             performUIUpdatesOnMain {
+                task.cancel()
                 self.spinner.isHidden = true
                 self.thanklabel.isHidden = true
                 self.label.text = "Sorry, something went wrong. Please make sure you have an active internet connection"

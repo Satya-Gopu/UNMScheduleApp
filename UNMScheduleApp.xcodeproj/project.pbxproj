@@ -16,7 +16,6 @@
 		D51580A81E5FDF7C00BB11BA /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51580A71E5FDF7C00BB11BA /* ViewController5.swift */; };
 		D51580AA1E601BBA00BB11BA /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51580A91E601BBA00BB11BA /* ViewController6.swift */; };
 		D56DF7CD1E6B7F28002D7581 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56DF7CC1E6B7F28002D7581 /* GCDBlackBox.swift */; };
-		D58312931EAFF0FC00B34B4A /* WeekViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58312921EAFF0FC00B34B4A /* WeekViewController2.swift */; };
 		D596D31F1E5E40F70080A700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D31E1E5E40F70080A700 /* AppDelegate.swift */; };
 		D596D3211E5E40F70080A700 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D3201E5E40F70080A700 /* ViewController.swift */; };
 		D596D3241E5E40F70080A700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D596D3221E5E40F70080A700 /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 		D596D3291E5E40F70080A700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D596D3271E5E40F70080A700 /* LaunchScreen.storyboard */; };
 		D596D3341E5E40F70080A700 /* UNMScheduleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D3331E5E40F70080A700 /* UNMScheduleAppTests.swift */; };
 		D596D33F1E5E40F70080A700 /* UNMScheduleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D33E1E5E40F70080A700 /* UNMScheduleAppUITests.swift */; };
-		D596D34F1E5E56B40080A700 /* current.xml in Resources */ = {isa = PBXBuildFile; fileRef = D596D34E1E5E56B40080A700 /* current.xml */; };
 		D5C98A4D1E9F316C005344E2 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */; };
 		D5C98A4F1E9F33DF005344E2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C98A4E1E9F33DF005344E2 /* CollectionViewCell.swift */; };
 		D5F6A5E81ECEB29A007B7F51 /* XMLParserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */; };
@@ -58,7 +56,6 @@
 		D51580A71E5FDF7C00BB11BA /* ViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
 		D51580A91E601BBA00BB11BA /* ViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
 		D56DF7CC1E6B7F28002D7581 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
-		D58312921EAFF0FC00B34B4A /* WeekViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController2.swift; sourceTree = "<group>"; };
 		D596D31B1E5E40F70080A700 /* UNMScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNMScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D596D31E1E5E40F70080A700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D596D3201E5E40F70080A700 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		D596D33A1E5E40F70080A700 /* UNMScheduleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UNMScheduleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D596D33E1E5E40F70080A700 /* UNMScheduleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNMScheduleAppUITests.swift; sourceTree = "<group>"; };
 		D596D3401E5E40F70080A700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D596D34E1E5E56B40080A700 /* current.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = current.xml; sourceTree = "<group>"; };
 		D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
 		D5C98A4E1E9F33DF005344E2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParserClass.swift; sourceTree = "<group>"; };
@@ -118,6 +114,7 @@
 				D5FF07231E68F1AA003E5304 /* ZeroViewController.swift */,
 				D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */,
 				D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */,
+				D50E6BCA1EB5705500A598E9 /* InitialViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -148,11 +145,7 @@
 				D5F5B2E61EA06D0200AD4F1C /* View */,
 				D52215A01E689AB2007B8F0E /* Controllers */,
 				D5CDD54E1E977EA800D433C2 /* supportingFiles */,
-				D596D32A1E5E40F70080A700 /* Info.plist */,
-				D596D34E1E5E56B40080A700 /* current.xml */,
 				D5CDD54F1E977EC800D433C2 /* Model */,
-				D58312921EAFF0FC00B34B4A /* WeekViewController2.swift */,
-				D50E6BCA1EB5705500A598E9 /* InitialViewController.swift */,
 			);
 			path = UNMScheduleApp;
 			sourceTree = "<group>";
@@ -182,6 +175,7 @@
 				D596D3221E5E40F70080A700 /* Main.storyboard */,
 				D596D3251E5E40F70080A700 /* Assets.xcassets */,
 				D596D3271E5E40F70080A700 /* LaunchScreen.storyboard */,
+				D596D32A1E5E40F70080A700 /* Info.plist */,
 			);
 			name = supportingFiles;
 			sourceTree = "<group>";
@@ -318,7 +312,6 @@
 				D596D3291E5E40F70080A700 /* LaunchScreen.storyboard in Resources */,
 				D596D3261E5E40F70080A700 /* Assets.xcassets in Resources */,
 				D596D3241E5E40F70080A700 /* Main.storyboard in Resources */,
-				D596D34F1E5E56B40080A700 /* current.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +345,6 @@
 				D56DF7CD1E6B7F28002D7581 /* GCDBlackBox.swift in Sources */,
 				D596D31F1E5E40F70080A700 /* AppDelegate.swift in Sources */,
 				D5C98A4D1E9F316C005344E2 /* WeekViewController.swift in Sources */,
-				D58312931EAFF0FC00B34B4A /* WeekViewController2.swift in Sources */,
 				D5051F9C1E5E71D300BDC4F3 /* ViewController2.swift in Sources */,
 				D5C98A4F1E9F33DF005344E2 /* CollectionViewCell.swift in Sources */,
 				D51580AA1E601BBA00BB11BA /* ViewController6.swift in Sources */,
