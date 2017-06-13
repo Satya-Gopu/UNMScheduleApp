@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     let remoteURLCurrent = URL(string: "http://datastore.unm.edu/schedules/current.xml")
     let remoteURLNext = URL(string: "http://datastore.unm.edu/schedules/next1.xml" )
     let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    var completionForBackGround : (() -> Void)?
         //.appendingPathComponent("current.xml")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -51,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         print("will terminate")
+    }
+    
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        self.completionForBackGround = completionHandler
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

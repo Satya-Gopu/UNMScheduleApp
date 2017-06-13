@@ -16,6 +16,7 @@
 		D51580A81E5FDF7C00BB11BA /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51580A71E5FDF7C00BB11BA /* ViewController5.swift */; };
 		D51580AA1E601BBA00BB11BA /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51580A91E601BBA00BB11BA /* ViewController6.swift */; };
 		D56DF7CD1E6B7F28002D7581 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56DF7CC1E6B7F28002D7581 /* GCDBlackBox.swift */; };
+		D58660611EE7E25300ACEDE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58660601EE7E25300ACEDE0 /* LoginViewController.swift */; };
 		D596D31F1E5E40F70080A700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D31E1E5E40F70080A700 /* AppDelegate.swift */; };
 		D596D3211E5E40F70080A700 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596D3201E5E40F70080A700 /* ViewController.swift */; };
 		D596D3241E5E40F70080A700 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D596D3221E5E40F70080A700 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		D51580A71E5FDF7C00BB11BA /* ViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
 		D51580A91E601BBA00BB11BA /* ViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
 		D56DF7CC1E6B7F28002D7581 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		D58660601EE7E25300ACEDE0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D596D31B1E5E40F70080A700 /* UNMScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNMScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D596D31E1E5E40F70080A700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D596D3201E5E40F70080A700 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				D5C98A4C1E9F316C005344E2 /* WeekViewController.swift */,
 				D5F6A5E71ECEB29A007B7F51 /* XMLParserClass.swift */,
 				D50E6BCA1EB5705500A598E9 /* InitialViewController.swift */,
+				D58660601EE7E25300ACEDE0 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				D5051F9C1E5E71D300BDC4F3 /* ViewController2.swift in Sources */,
 				D5C98A4F1E9F33DF005344E2 /* CollectionViewCell.swift in Sources */,
 				D51580AA1E601BBA00BB11BA /* ViewController6.swift in Sources */,
+				D58660611EE7E25300ACEDE0 /* LoginViewController.swift in Sources */,
 				D50D40F31E609E6F008806EB /* ViewController7.swift in Sources */,
 				D5051F9E1E5EA5B400BDC4F3 /* Colleges.swift in Sources */,
 				D51580A81E5FDF7C00BB11BA /* ViewController5.swift in Sources */,
