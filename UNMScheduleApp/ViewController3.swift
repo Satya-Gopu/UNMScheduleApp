@@ -35,11 +35,11 @@ class ViewController3: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let four = self.storyboard?.instantiateViewController(withIdentifier: "four") as! ViewController4
+        let five = self.storyboard?.instantiateViewController(withIdentifier: "five") as! ViewController5
         
-        four.subjectArray = self.departments[indexPath.row].subjectArray
+        five.subjectArray = self.departments[indexPath.row].subjectArray
         
-        self.navigationController?.pushViewController(four, animated: true)
+        self.navigationController?.pushViewController(five, animated: true)
         
         
         

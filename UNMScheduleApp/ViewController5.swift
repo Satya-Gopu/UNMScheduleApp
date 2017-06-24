@@ -11,42 +11,55 @@ import UIKit
 class ViewController5: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
+    var subjectArray = [Subjects]()
     var courseArray : [Courses] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "courses"
         self.automaticallyAdjustsScrollViewInsets = false
-        // Do any additional setup after loading the view.
-        courseArray = courseArray.sorted(by: {course1, course2 in
-            return course1.title < course2.title
+        for subject in subjectArray{
+            courseArray.append(contentsOf: subject.courseArray)
+        }
+        subjectArray = subjectArray.sorted(by: {(sub1, sub2) in
+            return sub1.subjectName < sub2.subjectName
         })
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return subjectArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courseArray.count
+        return subjectArray[section].courseArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell5", for: indexPath)
         
-        cell.textLabel?.text = courseArray[indexPath.row].title
+        cell.textLabel?.text = subjectArray[indexPath.section].courseArray[indexPath.row].title
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return subjectArray[section].subjectName
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let six = self.storyboard?.instantiateViewController(withIdentifier: "six") as! ViewController6
-        six.coursetitle = self.courseArray[indexPath.row].title
-        six.descriptions = self.courseArray[indexPath.row].descriptions
-        six.sections = self.courseArray[indexPath.row].sections
+        six.coursetitle = subjectArray[indexPath.section].courseArray[indexPath.row].title
+        //self.courseArray[indexPath.row].title
+        six.descriptions = subjectArray[indexPath.section].courseArray[indexPath.row].descriptions
+            //self.courseArray[indexPath.row].descriptions
+        six.sections = subjectArray[indexPath.section].courseArray[indexPath.row].sections
+            //self.courseArray[indexPath.row].sections
         self.navigationController?.pushViewController(six, animated: true)
         
     }

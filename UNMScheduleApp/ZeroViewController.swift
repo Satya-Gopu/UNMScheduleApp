@@ -50,7 +50,7 @@ class ZeroViewController: UIViewController{
             if let date = UserDefaults.standard.object(forKey: "lastUpdateOn") as? Date{
                 print("calling")
                 let timeInterval = Date().timeIntervalSince(date)
-                if timeInterval >= 18{
+                if timeInterval >= 86740{
                     self.runcode()
                  }
             }
@@ -89,12 +89,10 @@ class ZeroViewController: UIViewController{
     
     @IBAction func openSeetings(_ sender: Any) {
         
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             if self.trailingLayout.constant < 0{
                 self.trailingLayout.constant = 0
                 self.table.isUserInteractionEnabled = false
-                //self.view.alpha = 0.5
-                //self.settingsView.alpha = 1
             }else{
                 self.trailingLayout.constant = -self.settingsView.bounds.width
                 self.table.isUserInteractionEnabled = true
