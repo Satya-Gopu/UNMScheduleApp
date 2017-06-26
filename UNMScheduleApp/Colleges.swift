@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct Section{
+    
+    var title : String!
+    var subCampuses : [String]!
+    var expanded : Bool!
+    
+}
+
 class Semester : NSObject, NSCoding{
     
     var name : String = String()

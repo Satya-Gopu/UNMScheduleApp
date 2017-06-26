@@ -12,6 +12,7 @@ import Foundation
 class ZeroViewController: UIViewController{
     
     var lists = [0 : ["Albuquerque/Main", "Albq Westside (UNM West)", "Online & ITV", "San Juan Bachelors/Graduate"], 1 : ["Gallup", "Gallup Bachelors/Graduate"], 2 : ["Taos", "Taos Bachelors/Graduate", "Taos/Mora", "Taos/Ojo Caliente"], 3 : ["Los Alamos"], 4 : ["Valencia"]]
+    var listss = [Section(title : "Albuquerque/Main", subCampuses : ["Albuquerque/Main", "Albq Westside (UNM West)", "Online & ITV", "San Juan Bachelors/Graduate"], expanded : false ), Section(title : "Gallup", subCampuses : ["Gallup", "Gallup Bachelors/Graduate"], expanded : false ), Section(title : "Taos", subCampuses : ["Taos", "Taos Bachelors/Graduate", "Taos/Mora", "Taos/Ojo Caliente"], expanded : false ), Section(title : "Los Alamos", subCampuses : ["Los Alamos"], expanded : false ), Section(title : "Valencia", subCampuses : ["Valencia"], expanded : false )]
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var trailingLayout: NSLayoutConstraint!
     @IBOutlet weak var barImage: UIBarButtonItem!
@@ -24,6 +25,7 @@ class ZeroViewController: UIViewController{
     var semester : Semester!
     var semester1 : Semester!
     var semester2 : Semester!
+    
     override func viewDidLoad() {
         cellularDataSwitch.isOn = UserDefaults.standard.bool(forKey: "cellular")
         super.viewDidLoad()
@@ -216,22 +218,67 @@ extension ZeroViewController : URLSessionDelegate, URLSessionDownloadDelegate{
 extension ZeroViewController: UITableViewDelegate, UITableViewDataSource{
     
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return listss.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
+        return listss[section].subCampuses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "zero", for: indexPath)
-        cell.textLabel?.text = lists[indexPath.row]?[0]
+        cell.textLabel?.text = listss[indexPath.section].subCampuses[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let first = self.storyboard?.instantiateViewController(withIdentifier: "first") as! ViewController
-        first.campuses = self.lists[indexPath.row]!
-        first.campusArray = self.semester.campusArray
-        self.navigationController?.pushViewController(first, animated: true)
+        let sec = self.storyboard?.instantiateViewController(withIdentifier: "sec") as! ViewController2
+        for campus in semester.campusArray{
+            if listss[indexPath.section].subCampuses[indexPath.row] == campus.campusname{
+                sec.collegeObjectArray = campus.collegeArray
+            }
+            
+        }
+        self.navigationController?.pushViewController(sec, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if listss[indexPath.section].expanded{
+            return 44
+        }
+        else{
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = CustomHeaderView()
+        view.customInit(title : listss[section].title, section: section, delegate: self)
+        return view
+    }
+    
+}
+
+extension ZeroViewController : CustomHeaderViewDelegate{
+    
+    func toggleSection(header: UITableViewHeaderFooterView, section: Int) {
+        listss[section].expanded = !listss[section].expanded
+        table.beginUpdates()
+        
+        for i in 0..<listss[section].subCampuses.count{
+            table.reloadRows(at: [IndexPath(row : i, section : section)], with: .automatic)
+            
+        }
+        table.endUpdates()
     }
     
 }
