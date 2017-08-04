@@ -127,7 +127,7 @@ class ZeroViewController: UIViewController{
         }
     }
     
-    func swipeup(){
+    @IBAction func swipeup(){
         self.presentAlert(semester1: semester1.name, semester2: semester2.name)
     }
     
@@ -248,7 +248,7 @@ extension ZeroViewController: UITableViewDelegate, UITableViewDataSource{
         return 44
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

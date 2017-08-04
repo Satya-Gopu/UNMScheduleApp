@@ -23,7 +23,8 @@ class CustomHeaderView: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.backgroundColor = UIColor.lightGray
-        textLabel?.textColor = UIColor(colorLiteralRed: 161, green: 132, blue: 5, alpha: 1)
+        textLabel?.textColor = UIColor.black
+        //(red: 0.63, green: 0.51, blue: 0.01, alpha: 1.0)
     }
     
     func customInit(title : String, section : Int, delegate : CustomHeaderViewDelegate){
